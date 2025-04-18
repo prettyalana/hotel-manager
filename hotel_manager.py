@@ -10,6 +10,8 @@ hotel = {
   }
 }
 
+# TODO: Find out if the hotel keys have values.
+    
 def check_in_check_out() :
     floor_number = input("Choose a floor number: Floor 1: Room 101, Floor 2: Room 237, or Floor 3: Room 333  ")
     room_number = input("Choose a room number: Room 101: Floor 1, Room 237: Floor 2, or Room 333: Floor 3 ")
@@ -37,13 +39,12 @@ def display_occupants_and_rooms() :
 
 def guest_status_menu():
     guest_input = input("Are you checking in or out? ")
-    floor, room = check_in_check_out()
-    guests = hotel[floor][room]
-    if guest_input == "in" and not guests:
+     
+    if guest_input == "in" :
         add_guest()
         display_occupants_and_rooms()
         exit()
-    elif guest_input == "out" and guests :
+    elif guest_input == "out" :
         remove_guest()
         display_occupants_and_rooms()
     else :
