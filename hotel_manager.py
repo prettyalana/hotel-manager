@@ -15,6 +15,12 @@ def check_in_check_out() :
     room_number = input("Choose a room number: Room 101: Floor 1, Room 237: Floor 2, or Room 333: Floor 3 ")
     return floor_number, room_number
 
+def is_occupied() :
+    floor, room = check_in_check_out()
+    guests = hotel[floor][room]
+    if guests :
+        print(f"Room: {room} on the {floor} is occupied.")
+
 def is_checking_in() :
     occupants = input("How many occupants? ")
     occupant_names = input("What are the occupant's names? ")
