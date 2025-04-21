@@ -51,7 +51,8 @@ def display_occupants_and_rooms() :
     print(hotel)
 
 def guest_status_menu():
-    while True:
+    tries = 3
+    while tries > 0:
       guest_input = input("Are you checking in or out? ")
      
       if guest_input == "in" :
@@ -61,7 +62,11 @@ def guest_status_menu():
           remove_guest()
           display_occupants_and_rooms()
       else :
-          print(f"Please choose in or out")
+          tries -= 1
+          print("Please choose in or out")
+          if tries == 0 :
+            print("You have input an invalid option too many times. Try again later.")
+            break
                   
 guest_status_menu()
     
