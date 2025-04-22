@@ -75,5 +75,5 @@ class Hotel:
                     break
 
 
-random_hotel = Hotel()
-random_hotel.guest_status_menu()
+hollywood_hotel = Hotel()
+hollywood_hotel.guest_status_menu()
