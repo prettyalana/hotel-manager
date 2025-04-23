@@ -2,13 +2,13 @@ class Hotel:
     def __init__(self, name):
         self.name = name
         self.hotel = {
-            "1": {
-                "101": ["George Jefferson", "Wheezy Jefferson"],
+            1: {
+                101: ["George Jefferson", "Wheezy Jefferson"],
             },
-            "2": {
-                "237": ["Jack Torrance", "Wendy Torrance"],
+            2: {
+                237: ["Jack Torrance", "Wendy Torrance"],
             },
-            "3": {"333": ["Neo", "Trinity", "Morpheus"]},
+            3: {333: ["Neo", "Trinity", "Morpheus"]},
         }
 
     def welcome_message(self):
