@@ -1,5 +1,6 @@
 class Hotel:
-    def __init__(self):
+    def __init__(self, name):
+        self.name = name
         self.hotel = {
             "1": {
                 "101": ["George Jefferson", "Wheezy Jefferson"],
@@ -10,12 +11,15 @@ class Hotel:
             "3": {"333": ["Neo", "Trinity", "Morpheus"]},
         }
 
+    def welcome_message(self):
+        print(f"Welcome to {self.name}.")
+        
     def check_in_check_out(self):
         floor_number = input(
-            "Choose a floor number: Floor 1: Room 101, Floor 2: Room 237, or Floor 3: Room 333  "
+            "Choose a floor number: Floor 1, Floor 2, or Floor 3 "
         )
         room_number = input(
-            "Choose a room number: Room 101: Floor 1, Room 237: Floor 2, or Room 333: Floor 3 "
+            "Choose a room number: Room 101, Room 237, or Room 333 "
         )
         return floor_number, room_number
 
@@ -57,6 +61,8 @@ class Hotel:
     def guest_status_menu(self):
         tries = 3
         while tries > 0:
+            self.welcome_message() 
+            
             guest_input = input("Are you checking in or out? ")
 
             if guest_input == "in":
@@ -75,5 +81,5 @@ class Hotel:
                     break
 
 
-hollywood_hotel = Hotel()
+hollywood_hotel = Hotel("Hollywood Hotel")
 hollywood_hotel.guest_status_menu()
