@@ -24,10 +24,14 @@ class Hotel:
         return floor_number, room_number
 
     def is_checking_in(self):
-        occupants = input("How many occupants? ")
-        occupant_names = input("What are the occupant's names? ")
-        print(occupants, occupant_names)
-        return occupant_names
+        occupants = int(input("How many occupants? "))
+        if occupants > 1 :
+            occupant_names = input("What are the occupant's names? ")
+        else :
+            occupant_names = input("What is the occupant's name? ")
+        
+        print(f"{occupants}: {occupant_names}")
+        return occupants, occupant_names
 
     def add_guest(self):
         floor, room = self.check_in_check_out()
@@ -35,9 +39,12 @@ class Hotel:
         if floor in self.hotel and room in self.hotel[floor]:
             # If the room is not occupied check the user in
             if len(self.hotel[floor][room]) == 0:
-                occupant_names = self.is_checking_in()
+                occupant, occupant_names = self.is_checking_in()
                 self.hotel[floor][room] = occupant_names.split(", ")
-                print(f"{occupant_names} have been checked into {room, floor}")
+                if occupant > 1 :
+                    print(f"{occupant_names} have been checked into Room: {room} on Floor: {floor}.")
+                else :
+                    print(f"{occupant_names} has been checked into Room: {room} on Floor: {floor}.")
             else:
                 print(f"Room: {room} is already occupied.")
         else:
@@ -51,12 +58,15 @@ class Hotel:
             if len(self.hotel[floor][room]) > 0:
                 delete_guest = self.hotel[floor][room]
                 self.hotel[floor][room] = []
-                print(f"{delete_guest} has checked out.")
+                print(f"{", ".join(delete_guest)} has checked out.")
         else:
             print("That room does not exist.")
 
     def display_occupants_and_rooms(self):
-        print(self.hotel)
+        for floor in self.hotel :
+            for room in self.hotel[floor]:
+                guests = self.hotel[floor][room]
+                print(f"Floors: {floor}, Rooms: {room}, Guests: {", ".join(guests)}")
 
     def guest_status_menu(self):
         tries = 3
