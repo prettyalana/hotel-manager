@@ -15,12 +15,12 @@ class Hotel:
         print(f"Welcome to {self.name}.")
         
     def check_in_check_out(self):
-        floor_number = input(
+        floor_number = int(input(
             "Choose a floor number: Floor 1, Floor 2, or Floor 3 "
-        )
-        room_number = input(
+        ))
+        room_number = int(input(
             "Choose a room number: Room 101, Room 237, or Room 333 "
-        )
+        ))
         return floor_number, room_number
 
     def is_checking_in(self):
