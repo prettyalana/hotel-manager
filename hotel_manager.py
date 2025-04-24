@@ -1,7 +1,7 @@
 class Hotel:
     def __init__(self, name):
         self.name = name
-        self.hotel_data = {
+        self.hotel_data = { 
             1: {
                 101: ["George Jefferson", "Wheezy Jefferson"],
             },
@@ -15,13 +15,20 @@ class Hotel:
         print(f"Welcome to {self.name}.")
 
     def check_in_check_out(self):
-        floor_number = int(
-            input("Choose a floor number: Floor 1, Floor 2, or Floor 3 ")
-        )
-        room_number = int(
-            input("Choose a room number: Room 101, Room 237, or Room 333 ")
-        )
-        return floor_number, room_number
+        
+        while True: 
+            try:
+                floor_number = int(
+                    input("Choose a floor number: Floor 1, Floor 2, or Floor 3 ")
+                )
+                # Check if input is an integer
+                if isinstance(floor_number, int): 
+                    room_number = int(
+                        input("Choose a room number: Room 101, Room 237, or Room 333 ")
+                    )
+                return floor_number, room_number
+            except ValueError:
+                print("Please input a whole number.")
 
     def is_checking_in(self):
         occupants = int(input("How many occupants? "))
